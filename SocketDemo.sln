@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocketDemo.Server", "Socket
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocketDemo.Client", "SocketDemo.Client\SocketDemo.Client.csproj", "{EE6722C0-5CF8-4ECD-A922-19DC5FEC85BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocketDemo.Lib", "SocketDemo.Lib\SocketDemo.Lib.csproj", "{72226732-7670-4916-880D-61A5DDC578C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{EE6722C0-5CF8-4ECD-A922-19DC5FEC85BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE6722C0-5CF8-4ECD-A922-19DC5FEC85BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE6722C0-5CF8-4ECD-A922-19DC5FEC85BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72226732-7670-4916-880D-61A5DDC578C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72226732-7670-4916-880D-61A5DDC578C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72226732-7670-4916-880D-61A5DDC578C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72226732-7670-4916-880D-61A5DDC578C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
