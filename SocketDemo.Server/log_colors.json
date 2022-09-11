@@ -1,7 +1,7 @@
 ﻿{
-  "ColorInfo": "DarkBlue",
-  "ColorWarning": "Yellow",
-  "ColorError": "Red",
-  "ColorSuccess": "DarkGreen",
-  "ColorCustom": "Gray"
+  "ColorInfo": 1,
+  "ColorWarning": 14,
+  "ColorError": 12,
+  "ColorSuccess": 2,
+  "ColorCustom": 7
 }
