@@ -7,6 +7,20 @@ server.ServerStart();
 while (true)
 {
     var client = server.AcceptClient();
-    var message = client.ReceiveMessage();
-    client.SendMessage($"Ваше сообщение: {message} - получено");
+    Task.Run(() =>
+    {
+        while (true)
+        {
+            var message = client.ReceiveMessage();
+
+            if (message == "exit")
+            {
+                client.Dispose();
+                break;
+            }
+
+            client.SendMessage($"Ваше сообщение: {message} - получено");
+        }
+    });
+
 }

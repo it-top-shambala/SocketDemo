@@ -4,12 +4,22 @@ using SocketDemo.Lib;
 var server = new TcpSocket("127.0.0.1", 8005, new LogToConsole());
 server.ConnectToServer();
 
-Console.Write("Введите текст мообщения: ");
-var message = Console.ReadLine();
+while (true)
+{
+    Console.Write("Введите текст мообщения (введите exit для выхода): ");
+    var message = Console.ReadLine();
 
-server.SendMessage(message);
+    if (message == "exit")
+    {
+        server.SendMessage(message);
+        server.Dispose();
+        break;
+    }
 
-message = server.ReceiveMessage();
-Console.WriteLine($"Ответ сервера: {message}");
+    server.SendMessage(message);
 
-server.Dispose();
+    message = server.ReceiveMessage();
+    Console.WriteLine($"Ответ сервера: {message}");
+}
+
+Console.WriteLine("Выход...");
