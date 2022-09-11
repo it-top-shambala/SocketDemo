@@ -36,8 +36,6 @@ public class TcpSocket : IDisposable
         _socket.Listen(10);
         _log?.Success("Сервер запущен.");
         _log?.Info("Ожидание подключения клиентов...");
-
-
     }
 
     public TcpSocket AcceptClient()
@@ -69,6 +67,7 @@ public class TcpSocket : IDisposable
             var bytes = _socket.Receive(data);
             message.Append(Encoding.Unicode.GetString(data, 0, bytes));
         } while (_socket.Available > 0);
+
         _log?.Success("Приём данных от клиента закончен");
         _log?.Info(message.ToString());
 

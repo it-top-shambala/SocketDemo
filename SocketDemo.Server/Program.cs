@@ -1,46 +1,12 @@
-﻿using System.Net;
-using System.Net.Sockets;
-using System.Text;
-using Logger.Console;
+﻿using Logger.Console;
+using SocketDemo.Lib;
 
-var log = new LogToConsole();
-
-log.Info("Запуск сервера:");
-
-var ip = IPAddress.Parse("127.0.0.1");
-var port = 8005;
-var endPoint = new IPEndPoint(ip, port);
-log.Info("- Определение IP-адреса сервера");
-
-var server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-log.Info("- Создание сокета для подключений клиентов");
-
-server.Bind(endPoint);
-server.Listen(10);
-log.Success("Сервер запущен. Ожидание подключения клиентов...");
+var server = new TcpSocket("127.0.0.1", 8005, new LogToConsole());
+server.ServerStart();
 
 while (true)
 {
-    var client = server.Accept();
-    log.Success("Клиент подключен.");
-    log.Info("Ожидание сообщения от клиента");
-
-    var message = new StringBuilder();
-    var bytes = 0;
-    var data = new byte[128];
-
-    do
-    {
-        bytes = client.Receive(data);
-        message.Append(Encoding.Unicode.GetString(data, 0, bytes));
-    } while (client.Available > 0);
-
-    log.Success("Приём данных от клиента закончен");
-    log.Info(message.ToString());
-
-    data = Encoding.Unicode.GetBytes("Ваши данные успешно получены");
-    client.Send(data);
-
-    client.Shutdown(SocketShutdown.Both);
-    client.Close();
+    var client = server.AcceptClient();
+    var message = client.ReceiveMessage();
+    client.SendMessage($"Ваше сообщение: {message} - получено");
 }

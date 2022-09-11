@@ -7,11 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Logger_csharp" Version="0.2.0"/>
-
-    <None Update="log_colors.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <ProjectReference Include="..\SocketDemo.Lib\SocketDemo.Lib.csproj"/>
   </ItemGroup>
 
 </Project>
